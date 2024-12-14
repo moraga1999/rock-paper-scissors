@@ -12,7 +12,12 @@
             let index = Math.floor(Math.random() * 3);
             return array[index];
         }
+
+        function getHumanChoice() {
+            return prompt("Please type your choice (rock/scissors/paper): ");
+        }
         console.log(getComputerChoice());
+        console.log(getHumanChoice());
     </script>
 </body>
 </html>
