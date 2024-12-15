@@ -7,6 +7,8 @@
 </head>
 <body>
     <script>
+        let computerScore, humanScore = 0;
+        
         function getComputerChoice() {
             let array = ["rock", "scissors", "paper"];
             let index = Math.floor(Math.random() * 3);
@@ -14,10 +16,30 @@
         }
 
         function getHumanChoice() {
-            return prompt("Please type your choice (rock/scissors/paper): ");
+            return prompt("Please type your choice (rock/scissors/paper): ").toLowerCase();
         }
-        console.log(getComputerChoice());
-        console.log(getHumanChoice());
+
+        function playRound(computerChoice, humanChoice) {
+            console.log("Computer choice: " + computerChoice + " Human choice: " + humanChoice);
+            if (computerChoice == humanChoice){
+                console.log("Draw");
+            } else if (computerChoice == "rock" && humanChoice == "scissors") {
+                console.log("Computer wins");
+            } else if (computerChoice == "rock" && humanChoice == "paper") {
+                console.log("Human wins");
+            } else if (computerChoice == "scissors" && humanChoice == "paper") {
+                console.log("Computer wins");
+            } else if (computerChoice == "scissors" && humanChoice == "rock") {
+                console.log("Human wins");
+            } else if (computerChoice == "paper" && humanChoice == "scissors") {
+                console.log("Human wins");
+            } else if (computerChoice == "paper" && humanChoice == "rock") {
+                console.log("Computer wins");
+            } else {
+                console.log("Invalid option");
+            }
+        }
+        playRound(getComputerChoice(), getHumanChoice());
     </script>
 </body>
 </html>
