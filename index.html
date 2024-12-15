@@ -7,7 +7,8 @@
 </head>
 <body>
     <script>
-        let computerScore, humanScore = 0;
+        let computerScore = 0; 
+        let humanScore = 0;
         
         function getComputerChoice() {
             let array = ["rock", "scissors", "paper"];
@@ -24,22 +25,43 @@
             if (computerChoice == humanChoice){
                 console.log("Draw");
             } else if (computerChoice == "rock" && humanChoice == "scissors") {
-                console.log("Computer wins");
+                console.log("Computer wins the round");
+                computerScore++;
             } else if (computerChoice == "rock" && humanChoice == "paper") {
-                console.log("Human wins");
+                console.log("Human wins the round");
+                humanScore++
             } else if (computerChoice == "scissors" && humanChoice == "paper") {
-                console.log("Computer wins");
+                console.log("Computer wins the round");
+                computerScore++;
             } else if (computerChoice == "scissors" && humanChoice == "rock") {
-                console.log("Human wins");
+                console.log("Human wins the round");
+                humanScore++
             } else if (computerChoice == "paper" && humanChoice == "scissors") {
-                console.log("Human wins");
+                console.log("Human wins the round");
+                humanScore++
             } else if (computerChoice == "paper" && humanChoice == "rock") {
-                console.log("Computer wins");
+                console.log("Computer wins the round");
+                computerScore++;
             } else {
                 console.log("Invalid option");
             }
         }
-        playRound(getComputerChoice(), getHumanChoice());
+
+        function playGame() {
+            for (let index = 1; index <= 5; index++) {
+                console.log("Round " + index)
+                playRound(getComputerChoice(), getHumanChoice());
+            }
+            console.log("Computer score: " + computerScore + " Human score: " + humanScore);
+            if (computerScore > humanScore) {
+                console.log("Computer wins the game!");
+            } else if (computerScore < humanScore) {
+                console.log("Human wins the game!");
+            } else {
+                console.log("It's a draw!");
+            }
+        }
+        playGame();
     </script>
 </body>
 </html>
